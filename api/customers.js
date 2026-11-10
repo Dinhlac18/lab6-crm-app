@@ -1,17 +1,17 @@
-const fs = require('fs');
-const path = require('path');
-
-const filePath = path.join(process.cwd(), 'data', 'customers.json');
-
-function readData() {
-    if (!fs.existsSync(filePath)) return [];
-    const fileData = fs.readFileSync(filePath, 'utf8');
-    return JSON.parse(fileData || '[]');
-}
-
-function writeData(data) {
-    fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf8');
-}
+let customers = [
+    {
+        id: 1,
+        name: "Nguyễn Văn An",
+        phone: "0901234567",
+        email: "an.nv@gmail.com"
+    },
+    {
+        id: 2,
+        name: "Trần Thị Bình",
+        phone: "0918765432",
+        email: "binh.tt@gmail.com"
+    }
+];
 
 export default function handler(req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -21,8 +21,6 @@ export default function handler(req, res) {
     if (req.method === 'OPTIONS') {
         return res.status(200).end();
     }
-
-    const customers = readData();
 
     if (req.method === 'GET') {
         return res.status(200).json(customers);
@@ -40,7 +38,6 @@ export default function handler(req, res) {
             email: email || ''
         };
         customers.push(newCustomer);
-        writeData(customers);
         return res.status(201).json(newCustomer);
     } 
     
@@ -51,9 +48,8 @@ export default function handler(req, res) {
             return res.status(404).json({ error: 'Không tìm thấy khách hàng' });
         }
         const deleted = customers.splice(index, 1);
-        writeData(customers);
         return res.status(200).json(deleted[0]);
     }
 
-    return res.status(405.1).json({ error: 'Method not allowed' });
+    return res.status(405).json({ error: 'Method not allowed' });
 }
