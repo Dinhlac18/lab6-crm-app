@@ -1,21 +1,15 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enterprise CRM Dashboard - Lab 6</title>
-    <!-- Tailwind CSS & FontAwesome Icons -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-    </style>
+    <style> body { font-family: 'Inter', sans-serif; } </style>
 </head>
 <body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col">
-
-    <!-- Top Navigation Bar -->
     <header class="bg-slate-800 border-b border-slate-700 px-6 py-4 flex justify-between items-center shadow-md">
         <div class="flex items-center space-x-3">
             <div class="bg-blue-600 p-2.5 rounded-xl text-white shadow-lg shadow-blue-500/30">
@@ -30,62 +24,45 @@
             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                 <span class="w-2 h-2 mr-1.5 bg-emerald-400 rounded-full animate-pulse"></span> Serverless Online
             </span>
-            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-600 flex items-center font-bold text-white shadow-md">
-                NĐ
-            </div>
+            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-600 flex items-center font-bold text-white shadow-md">NĐ</div>
         </div>
     </header>
 
-    <!-- Main Container -->
     <main class="flex-1 max-w-7xl w-full mx-auto p-6 md:p-8 space-y-6">
-
-        <!-- Statistics Cards Grid -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="bg-slate-800 border border-slate-700 p-5 rounded-2xl shadow-sm flex items-center justify-between">
                 <div>
                     <p class="text-xs font-medium text-slate-400 uppercase tracking-wider">Tổng số Khách hàng</p>
                     <h3 id="total-count" class="text-3xl font-bold text-white mt-1">0</h3>
                 </div>
-                <div class="bg-blue-500/10 text-blue-400 p-4 rounded-xl border border-blue-500/20">
-                    <i class="fa-solid fa-users text-2xl"></i>
-                </div>
+                <div class="bg-blue-500/10 text-blue-400 p-4 rounded-xl border border-blue-500/20"><i class="fa-solid fa-users text-2xl"></i></div>
             </div>
             <div class="bg-slate-800 border border-slate-700 p-5 rounded-2xl shadow-sm flex items-center justify-between">
                 <div>
                     <p class="text-xs font-medium text-slate-400 uppercase tracking-wider">Trạng thái API Endpoint</p>
                     <h3 class="text-lg font-bold text-emerald-400 mt-1 flex items-center"><i class="fa-solid fa-shield-check mr-2"></i> Hoạt động 24/7</h3>
                 </div>
-                <div class="bg-emerald-500/10 text-emerald-400 p-4 rounded-xl border border-emerald-500/20">
-                    <i class="fa-solid fa-server text-2xl"></i>
-                </div>
+                <div class="bg-emerald-500/10 text-emerald-400 p-4 rounded-xl border border-emerald-500/20"><i class="fa-solid fa-server text-2xl"></i></div>
             </div>
             <div class="bg-slate-800 border border-slate-700 p-5 rounded-2xl shadow-sm flex items-center justify-between">
                 <div>
                     <p class="text-xs font-medium text-slate-400 uppercase tracking-wider">Nền tảng Cloud Deploy</p>
                     <h3 class="text-lg font-bold text-purple-400 mt-1">Vercel Edge Network</h3>
                 </div>
-                <div class="bg-purple-500/10 text-purple-400 p-4 rounded-xl border border-purple-500/20">
-                    <i class="fa-solid fa-cloud text-2xl"></i>
-                </div>
+                <div class="bg-purple-500/10 text-purple-400 p-4 rounded-xl border border-purple-500/20"><i class="fa-solid fa-cloud text-2xl"></i></div>
             </div>
         </div>
 
-        <!-- Content Card: Add & Table List -->
         <div class="bg-slate-800 border border-slate-700 rounded-2xl shadow-xl overflow-hidden">
-            <!-- Card Header -->
             <div class="p-6 border-b border-slate-700 flex flex-col md:flex-row justify-between items-center gap-4">
                 <div>
                     <h2 class="text-lg font-bold text-white flex items-center"><i class="fa-solid fa-address-book mr-2.5 text-blue-500"></i> Danh Sách Khách Hàng Doanh Nghiệp</h2>
                     <p class="text-sm text-slate-400 mt-0.5">Quản lý và đồng bộ dữ liệu thời gian thực phục vụ ứng dụng di động.</p>
                 </div>
-                <!-- Action Form Trigger -->
-                <button onclick="openModal()" class="bg-blue-600 hover:bg-blue-500 text-white font-medium px-5 py-2.5 rounded-xl shadow-lg shadow-blue-600/30 transition duration-200 flex items-center space-x-2">
-                    <i class="fa-solid fa-user-plus"></i>
-                    <span>Thêm Khách Hàng Mới</span>
+                <button onclick="openModal()" class="bg-blue-600 hover:bg-blue-500 text-white font-medium px-5 py-2.5 rounded-xl shadow-lg shadow-blue-600/30 transition flex items-center space-x-2">
+                    <i class="fa-solid fa-user-plus"></i><span>Thêm Khách Hàng Mới</span>
                 </button>
             </div>
-
-            <!-- Table Section -->
             <div class="overflow-x-auto">
                 <table class="w-full text-left border-collapse">
                     <thead>
@@ -97,17 +74,14 @@
                             <th class="py-4 px-6 text-center">Thao Tác</th>
                         </tr>
                     </thead>
-                    <tbody id="customer-table-body" class="divide-y divide-slate-700/60 text-sm">
-                        <!-- Dữ liệu render động bằng JS -->
-                    </tbody>
+                    <tbody id="customer-table-body" class="divide-y divide-slate-700/60 text-sm"></tbody>
                 </table>
             </div>
         </div>
     </main>
 
-    <!-- Modal Form Thêm Khách Hàng -->
     <div id="customerModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center hidden">
-        <div class="bg-slate-800 border border-slate-700 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-5 animate-in fade-in zoom-in duration-200">
+        <div class="bg-slate-800 border border-slate-700 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-5">
             <div class="flex justify-between items-center border-b border-slate-700 pb-4">
                 <h3 class="text-lg font-bold text-white flex items-center"><i class="fa-solid fa-user-pen mr-2 text-blue-500"></i> Thêm Khách Hàng CRM</h3>
                 <button onclick="closeModal()" class="text-slate-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
@@ -115,61 +89,46 @@
             <div class="space-y-4">
                 <div>
                     <label class="block text-xs font-medium text-slate-300 uppercase mb-1.5">Tên khách hàng</label>
-                    <input type="text" id="name" placeholder="Ví dụ: Nguyễn Văn A" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition">
+                    <input type="text" id="name" placeholder="Ví dụ: Nguyễn Văn A" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500">
                 </div>
                 <div>
                     <label class="block text-xs font-medium text-slate-300 uppercase mb-1.5">Số điện thoại liên hệ</label>
-                    <input type="text" id="phone" placeholder="Ví dụ: 0901234567" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition">
+                    <input type="text" id="phone" placeholder="Ví dụ: 0901234567" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500">
                 </div>
                 <div>
                     <label class="block text-xs font-medium text-slate-300 uppercase mb-1.5">Địa chỉ Email</label>
-                    <input type="email" id="email" placeholder="Ví dụ: customer@gmail.com" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition">
+                    <input type="email" id="email" placeholder="Ví dụ: customer@gmail.com" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500">
                 </div>
             </div>
             <div class="flex justify-end space-x-3 pt-3 border-t border-slate-700">
-                <button onclick="closeModal()" class="bg-slate-700 hover:bg-slate-600 text-slate-200 px-4 py-2.5 rounded-xl font-medium transition">Hủy bỏ</button>
-                <button onclick="addCustomer()" class="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-xl font-medium shadow-lg shadow-blue-600/30 transition">Lưu Dữ Liệu</button>
+                <button onclick="closeModal()" class="bg-slate-700 hover:bg-slate-600 text-slate-200 px-4 py-2.5 rounded-xl font-medium">Hủy bỏ</button>
+                <button onclick="addCustomer()" class="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-xl font-medium shadow-lg shadow-blue-600/30">Lưu Dữ Liệu</button>
             </div>
         </div>
     </div>
 
-    <!-- Toast Notification -->
     <div id="toast" class="fixed bottom-6 right-6 bg-slate-800 border border-slate-700 text-white px-5 py-3 rounded-xl shadow-2xl transform translate-y-24 opacity-0 transition-all duration-300 flex items-center space-x-3 z-50">
         <i id="toast-icon" class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
         <span id="toast-message" class="text-sm font-medium">Thành công!</span>
     </div>
 
-    <!-- JavaScript Logic -->
     <script>
         function showToast(message, type = 'success') {
             const toast = document.getElementById('toast');
             const icon = document.getElementById('toast-icon');
             const msg = document.getElementById('toast-message');
-            
             msg.innerText = message;
-            if(type === 'success') {
-                icon.className = "fa-solid fa-circle-check text-emerald-400 text-lg";
-            } else {
-                icon.className = "fa-solid fa-triangle-exclamation text-amber-400 text-lg";
-            }
-
+            icon.className = type === 'success' ? "fa-solid fa-circle-check text-emerald-400 text-lg" : "fa-solid fa-triangle-exclamation text-amber-400 text-lg";
             toast.classList.remove('translate-y-24', 'opacity-0');
-            setTimeout(() => {
-                toast.classList.add('translate-y-24', 'opacity-0');
-            }, 3000);
+            setTimeout(() => toast.classList.add('translate-y-24', 'opacity-0'), 3000);
         }
-
-        function openModal() {
-            document.getElementById('customerModal').classList.remove('hidden');
-        }
-
+        function openModal() { document.getElementById('customerModal').classList.remove('hidden'); }
         function closeModal() {
             document.getElementById('customerModal').classList.add('hidden');
             document.getElementById('name').value = '';
             document.getElementById('phone').value = '';
             document.getElementById('email').value = '';
         }
-
         async function fetchCustomers() {
             try {
                 const res = await fetch('/api/customers');
@@ -177,12 +136,10 @@
                 const tbody = document.getElementById('customer-table-body');
                 document.getElementById('total-count').innerText = data.length;
                 tbody.innerHTML = '';
-                
                 if (data.length === 0) {
-                    tbody.innerHTML = `<tr><td colspan="5" class="py-8 text-center text-slate-500 italic">Chưa có dữ liệu khách hàng trong cơ sở dữ liệu.</td></tr>`;
+                    tbody.innerHTML = `<tr><td colspan="5" class="py-8 text-center text-slate-500 italic">Chưa có dữ liệu khách hàng.</td></tr>`;
                     return;
                 }
-
                 data.forEach(c => {
                     tbody.innerHTML += `
                         <tr class="hover:bg-slate-700/40 transition">
@@ -200,149 +157,33 @@
                             </td>
                         </tr>`;
                 });
-            } catch (error) {
-                console.error("Lỗi tải dữ liệu:", error);
-                showToast("Lỗi kết nối đến API Serverless!", "error");
-            }
+            } catch (error) { showToast("Lỗi kết nối API!", "error"); }
         }
-
         async function addCustomer() {
             const name = document.getElementById('name').value.trim();
             const phone = document.getElementById('phone').value.trim();
             const email = document.getElementById('email').value.trim();
-            
-            if (!name || !phone) {
-                showToast("Vui lòng điền đầy đủ tên và số điện thoại!", "error");
-                return;
-            }
-
+            if (!name || !phone) { showToast("Vui lòng điền tên và số điện thoại!", "error"); return; }
             try {
                 const res = await fetch('/api/customers', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ name, phone, email })
                 });
-
-                if(res.ok) {
-                    closeModal();
-                    fetchCustomers();
-                    showToast("Thêm khách hàng thành công!");
-                } else {
-                    showToast("Có lỗi xảy ra khi thêm dữ liệu!", "error");
-                }
-            } catch (error) {
-                showToast("Lỗi kết nối máy chủ!", "error");
-            }
+                if(res.ok) { closeModal(); fetchCustomers(); showToast("Thêm khách hàng thành công!"); }
+                else { showToast("Lỗi thêm dữ liệu!", "error"); }
+            } catch (error) { showToast("Lỗi kết nối máy chủ!", "error"); }
         }
-
-        async function deleteCustomer(id) {
-            if (confirm("Bạn có chắc chắn muốn xóa bản ghi khách hàng này khỏi hệ thống không?")) {
-                try {
-                    const res = await fetch(`/api/customers?id=${id}`, { method: 'DELETE' });
-                    if(res.ok) {
-                        fetchCustomers();
-                        showToast("Đã xóa khách hàng thành công!");
-                    } else {
-                        showToast("Không thể xóa khách hàng này!", "error");
-                    }
-                } catch (error) {
-                    showToast("Lỗi kết nối hệ thống!", "error");
-                }
-            }
-        }
-
-        // Khởi chạy khi tải trang
-        fetchCustomers();
-    </script>
-</body>
-=======
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản Lý Khách Hàng - Lab 6 CRM</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-50 min-h-screen p-6">
-    <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-md overflow-hidden p-6">
-        <h1 class="text-2xl font-bold text-blue-600 mb-2">Hệ Thống CRM Khách Hàng (Lab 6)</h1>
-        <p class="text-gray-600 text-sm mb-6">Kết nối API Serverless trên Vercel phục vụ cho Mobile App.</p>
-        
-        <!-- Form thêm khách hàng -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6 bg-blue-50 p-4 rounded-lg">
-            <input type="text" id="name" placeholder="Tên khách hàng" class="border p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
-            <input type="text" id="phone" placeholder="Số điện thoại" class="border p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
-            <button onclick="addCustomer()" class="bg-blue-600 text-white font-medium px-4 py-2 rounded hover:bg-blue-700 transition">Thêm Khách Hàng</button>
-        </div>
-
-        <!-- Danh sách khách hàng -->
-        <h2 class="text-lg font-semibold text-gray-800 mb-3">Danh sách khách hàng từ API:</h2>
-        <div class="border rounded-lg overflow-hidden">
-            <ul id="customer-list" class="divide-y divide-gray-200">
-                <!-- Dữ liệu được render bằng JavaScript -->
-            </ul>
-        </div>
-    </div>
-
-    <script>
-        async function fetchCustomers() {
-            try {
-                const res = await fetch('/api/customers');
-                const data = await res.json();
-                const list = document.getElementById('customer-list');
-                list.innerHTML = '';
-                
-                if (data.length === 0) {
-                    list.innerHTML = `<li class="p-4 text-center text-gray-500">Chưa có dữ liệu khách hàng nào.</li>`;
-                    return;
-                }
-
-                data.forEach(c => {
-                    list.innerHTML += `
-                        <li class="p-4 flex justify-between items-center hover:bg-gray-50">
-                            <div>
-                                <p class="font-semibold text-gray-800">${c.name}</p>
-                                <p class="text-sm text-gray-500">SĐT: ${c.phone} | Email: ${c.email || 'N/A'}</p>
-                            </div>
-                            <button onclick="deleteCustomer(${c.id})" class="bg-red-50 text-red-600 px-3 py-1 rounded text-sm hover:bg-red-100 transition">Xóa</button>
-                        </li>`;
-                });
-            } catch (error) {
-                console.error("Lỗi tải dữ liệu:", error);
-            }
-        }
-
-        async function addCustomer() {
-            const name = document.getElementById('name').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            
-            if (!name || !phone) {
-                alert("Vui lòng nhập đầy đủ tên và số điện thoại!");
-                return;
-            }
-
-            await fetch('/api/customers', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, phone })
-            });
-
-            document.getElementById('name').value = '';
-            document.getElementById('phone').value = '';
-            fetchCustomers();
-        }
-
         async function deleteCustomer(id) {
             if (confirm("Bạn có chắc chắn muốn xóa khách hàng này không?")) {
-                await fetch(`/api/customers?id=${id}`, { method: 'DELETE' });
-                fetchCustomers();
+                try {
+                    const res = await fetch(`/api/customers?id=${id}`, { method: 'DELETE' });
+                    if(res.ok) { fetchCustomers(); showToast("Đã xóa thành công!"); }
+                    else { showToast("Không thể xóa!", "error"); }
+                } catch (error) { showToast("Lỗi kết nối hệ thống!", "error"); }
             }
         }
-
-        // Tải danh sách khi mở trang
         fetchCustomers();
     </script>
 </body>
->>>>>>> 39d978769505cd3aba2e6520ee67de93f2059c6e
 </html>

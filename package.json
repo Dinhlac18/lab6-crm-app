@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {
   "name": "lab6-crm-app",
   "version": "1.0.0",
@@ -9,16 +8,4 @@
   },
   "dependencies": {},
   "devDependencies": {}
-=======
-{
-  "name": "lab6-crm-app",
-  "version": "1.0.0",
-  "description": "Lab 6 CRM API & Frontend deployed on Vercel",
-  "main": "index.js",
-  "scripts": {
-    "start": "node server.js"
-  },
-  "dependencies": {},
-  "devDependencies": {}
->>>>>>> 39d978769505cd3aba2e6520ee67de93f2059c6e
 }
